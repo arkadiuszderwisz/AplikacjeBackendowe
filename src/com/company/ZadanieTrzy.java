@@ -1,6 +1,9 @@
 package com.company;
 
 public class ZadanieTrzy {
+
+    //ZADANIE 6
+
     public static void main(String[] args) {
         String text = "line 1\nline 2";
         String[] lines = text.split("/\r?\n/");
