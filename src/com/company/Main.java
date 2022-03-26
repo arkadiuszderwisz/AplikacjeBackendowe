@@ -1,14 +1,15 @@
 package com.company;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.io.InputStreamReader;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.DataOutputStream;
-import java.io.File;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
 public class Main {
 
-    public static void main(String[] args) {
+    //ZADANIE 1 i 2
+
+    public static void main(String[] args) throws IOException {
         File file = new File("plik.txt");
         int length = (int) file.length();
        try(
@@ -27,6 +28,22 @@ public class Main {
        } catch (IOException e) {
            e.printStackTrace();
        }
+
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(System.in));
+            String tekst = reader.readLine();
+
+        try (
+
+            FileOutputStream stream = new FileOutputStream(("plik.txt"));
+            OutputStreamWriter writer = new OutputStreamWriter(stream, StandardCharsets.UTF_8);
+        ) {
+            writer.write(tekst);
+            writer.flush();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
 
     };
 }
